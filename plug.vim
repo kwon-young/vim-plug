@@ -116,7 +116,7 @@ function! plug#begin(...)
   elseif exists('g:plug_home')
     let home = s:path(g:plug_home)
   elseif !empty(&rtp)
-    let home = s:path(split(&rtp, ',')[0]) . '/plugged'
+    let home = s:path(expand(split(&rtp, ',')[0])) . '/plugged'
   else
     return s:err('Unable to determine plug home. Try calling plug#begin() with a path argument.')
   endif
